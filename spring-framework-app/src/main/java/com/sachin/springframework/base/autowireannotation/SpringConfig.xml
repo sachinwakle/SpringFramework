@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- bean can be autowired, if id having same name of properties of bean.
+	 It is possible by autowire="byType" but should be only one property in bean-->
+	<bean id="triangle" class="com.sachin.springframework.base.autowireannotation.Triangle">
+	<property name="pointA" ref="pointA"/>
+	<property name="pointB" ref="pointB"/>
+	<property name="pointC" ref="pointThree"></property>
+	</bean>
+	
+	 <bean id="pointA" class="com.sachin.springframework.base.autowireannotation.Point">
+		<property name="x" value="0"/>
+		<property name="y" value="0"/>
+	</bean>
+	<bean id="pointB" class="com.sachin.springframework.base.autowireannotation.Point">
+		<property name="x" value="-20"/>
+		<property name="y" value="0"/>
+	</bean> 
+	 <bean id="pointThree" class="com.sachin.springframework.base.autowireannotation.Point">
+	   
+		<property name="x" value="0"/>
+		<property name="y" value="78"/>
+	</bean> 
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+</beans>

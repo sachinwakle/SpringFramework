@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+    "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	
+	<!-- bean can be autowired, if id having same name of properties of bean.
+	 It is possible by autowire="byType" but should be only one property in bean-->
+	<bean id="triangle" class="com.sachin.springframework.base.requried.Triangle" autowire="byName" />
+	
+	<bean id="pointA" class="com.sachin.springframework.base.requried.Point">
+		<property name="x" value="0"/>
+		<property name="y" value="0"/>
+	</bean>
+	<bean id="pointB" class="com.sachin.springframework.base.requried.Point">
+		<property name="x" value="-20"/>
+		<property name="y" value="0"/>
+	</bean>
+	<bean id="pointC" class="com.sachin.springframework.base.requried.Point">
+		<property name="x" value="0"/>
+		<property name="y" value="78"/>
+	</bean>
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean>
+	<bean class="com.sachin.springframework.base.requried.BeanPP"/>
+</beans>
